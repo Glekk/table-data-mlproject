@@ -1,0 +1,19 @@
+.marketing {
+    text-align: center;
+    padding: 20px;
+}
+
+.marketing h1 {
+    font-size: 50px;
+    color: #0069D9;
+}
+
+.marketing h2 {
+    font-size: 30px;
+    color: #0069D9;
+}
+
+form {
+    margin: 0 auto;
+    width: 50%;
+}

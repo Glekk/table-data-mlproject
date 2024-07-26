@@ -1,0 +1,110 @@
+<html lang="en">
+ <style>
+
+</style>
+<head>
+    <meta charset="utf-8">
+    <title>Customer Conversion Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="marketing">
+       <h1>Customer Conversion Prediction</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Conversion Prediction Form</legend>
+        </h1>
+        <!-- Categorical Features -->
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="gender" required>
+                <option selected disabled value="">Select your Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Campaign Channel</label>
+            <select class="form-control" name="campaign_channel" required>
+                <option selected disabled value="">Select Campaign Channel</option>
+                <option value="Referral">Referral</option>
+                <option value="PPC">PPC</option>
+                <option value="Email">Email</option>
+                <option value="SEO">SEO</option>
+                <option value="Social Media">Social Media</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Campaign Type</label>
+            <select class="form-control" name="campaign_type" required>
+                <option selected disabled value="">Select Campaign Type</option>
+                <option value="Conversion">Conversion</option>
+                <option value="Awareness">Awareness</option>
+                <option value="Consideration">Consideration</option>
+                <option value="Retention">Retention</option>
+            </select>
+        </div>
+        <!-- Numerical Features -->
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input class="form-control" type="number" name="age" placeholder="Enter Age" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Income</label>
+            <input class="form-control" type="number" name="income" placeholder="Enter Income" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Ad Spend</label>
+            <input class="form-control" type="number" step="0.0001" name="ad_spend" placeholder="Enter Ad Spend" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Click Through Rate</label>
+            <input class="form-control" type="number" step="0.0001" name="click_through_rate" placeholder="Enter Click Through Rate" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Conversion Rate</label>
+            <input class="form-control" type="number" step="0.0001" name="conversion_rate" placeholder="Enter Conversion Rate" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Website Visits</label>
+            <input class="form-control" type="number" name="website_visits" placeholder="Enter Website Visits" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Pages Per Visit</label>
+            <input class="form-control" type="number" step="0.0001" name="pages_per_visit" placeholder="Enter Pages Per Visit" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Time On Site</label>
+            <input class="form-control" type="number" step="0.0001" name="time_on_site" placeholder="Enter Time On Site" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Social Shares</label>
+            <input class="form-control" type="number" name="social_shares" placeholder="Enter Social Shares" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email Opens</label>
+            <input class="form-control" type="number" name="email_opens" placeholder="Enter Email Opens" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email Clicks</label>
+            <input class="form-control" type="number" name="email_clicks" placeholder="Enter Email Clicks" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Previous Purchases</label>
+            <input class="form-control" type="number" name="previous_purchases" placeholder="Enter Previous Purchases" min="0" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Loyalty Points</label>
+            <input class="form-control" type="number" name="loyalty_points" placeholder="Enter Loyalty Points" min="0" required />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict Conversion" />
+        </div>
+    </form>
+    <h2>
+       Prediction: {{results}}
+    </h2>
+   <body>
+</html>
